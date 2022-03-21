@@ -11,6 +11,7 @@ public class Enemy : NPC
     {
         Debug.Log("Enemy start");
         navMeshAgent.speed = moveSpeed;
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
