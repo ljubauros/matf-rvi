@@ -15,10 +15,14 @@ public class Bullet : MonoBehaviour
     
     
 
-    private void OnCollisionEnter(Collision other) 
+    private void OnTriggerEnter(Collider other) 
     {
         if(other != null)
         {
+            if (other.gameObject.tag.Equals("Enemy")){
+                other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            }
+
             Destroy(gameObject);
         }   
     }

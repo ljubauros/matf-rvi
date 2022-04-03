@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TestFizka : MonoBehaviour
 {
-    [SerializeField] Rigidbody rigidbody;
+    [SerializeField] Rigidbody rbody;
     [SerializeField] MeshRenderer meshRenderer;
 
     // Update is called once per frame
@@ -12,15 +12,15 @@ public class TestFizka : MonoBehaviour
     {
         if(Input.GetKeyUp(KeyCode.J))
         {
-            rigidbody.AddForce(Vector3.up*100, ForceMode.Force);
+            rbody.AddForce(Vector3.up*100, ForceMode.Force);
         }
         if(Input.GetKeyUp(KeyCode.K))
         {
-            rigidbody.AddForce(Vector3.up*4, ForceMode.Impulse);
+            rbody.AddForce(Vector3.up*4, ForceMode.Impulse);
         }
         if(Input.GetKeyUp(KeyCode.L))
         {
-            rigidbody.AddTorque(Vector3.up*10, ForceMode.VelocityChange);
+            rbody.AddTorque(Vector3.up*10, ForceMode.VelocityChange);
         }
     }
 
