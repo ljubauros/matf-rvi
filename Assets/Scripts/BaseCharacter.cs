@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BaseCharacter : MonoBehaviour, IDamageable
 {
-    private int health = 100;
-    public int Health { get { return health; } }
+    public float health { get; set; } = 100;
 
     public void Die()
     {
@@ -15,7 +14,7 @@ public class BaseCharacter : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         health -= damage;
-        if(health <= 0)
+        if (health <= 0)
         {
             Die();
         }

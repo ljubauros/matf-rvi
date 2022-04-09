@@ -9,10 +9,12 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
     List<Vector3> spawnPoints;
     System.Random rnd = new System.Random();
+    public PlayerMovement player;
 
 
-    public GameObject SpawnEnemy(){
-        GameObject enemy = Instantiate(enemyPrefab, spawnPoints[rnd.Next(0, spawnPoints.Count)], new Quaternion(0,0,0,1));
+    public GameObject SpawnEnemy(int id){
+        GameObject enemy = Instantiate(enemyPrefab, spawnPoints[rnd.Next(0, spawnPoints.Count)], Quaternion.identity);
+        enemy.GetComponent<Enemy>().id = id;
         return enemy;
     }
 
@@ -23,9 +25,7 @@ public class EnemySpawner : MonoBehaviour
         spawnPoints.Add(new Vector3(-27,0,35));
         spawnPoints.Add(new Vector3(-50,0,35));
         for(int i = 0; i < numberOfEnemies; i++){
-            spawnedEnemies.Add(SpawnEnemy());
-            Debug.Log(spawnedEnemies[i]);
-
+            spawnedEnemies.Add(SpawnEnemy(i));
         }
     }
 

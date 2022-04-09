@@ -5,11 +5,12 @@ using UnityEngine;
 public class Enemy : NPC
 {
     public float moveSpeed = 1;
+    public int id { set; get; }
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Enemy start");
+        health = 100;
         navMeshAgent.speed = moveSpeed;
         player = GameObject.FindWithTag("Player");
     }
